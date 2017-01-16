@@ -6,6 +6,8 @@ package fizzbuzz;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
+import java.util.Random;
+
 import org.junit.Test;
 
 public class FizzBuzzTest {
@@ -46,18 +48,57 @@ public class FizzBuzzTest {
 
 	@Test
 	public void test3と5の倍数エラー出しチェック() {
-		assertThat(FizzBuzz.FB(30), is("30"));
+		assertThat(FizzBuzz.FB(30), not(is("30")));
+
 	}
 
 	@Test
 	public void test3倍数エラー出しチェック() {
-		assertThat(FizzBuzz.FB(9), is("9"));
+		assertThat(FizzBuzz.FB(9), not(is("9")));
 	}
 
 	@Test
 	public void test5倍数エラー出しチェック() {
-		assertThat(FizzBuzz.FB(20), is("20"));
+		assertThat(FizzBuzz.FB(20), not(is("20")));
+	}
 
+	@Test
+	public void test3と5の倍数ランダムチェック() {
+
+		// Randomクラスのインスタンス化
+
+		Random rnd = new Random();
+
+		int ran = rnd.nextInt(999);
+		System.out.println(ran);
+
+		assertThat(FizzBuzz.FB(15 * ran), not(is("FizzBuzz")));
+	}
+
+	@Test
+	public void test３の倍数ランダムチェック() {
+
+		// Randomクラスのインスタンス化
+
+		Random rnd = new Random();
+
+		int ran = rnd.nextInt(999);
+		System.out.println(ran);
+
+		assertThat(FizzBuzz.FB(3 * ran), not(is("Fizz")));
+	}
+
+	@Test
+	public void test5の倍数ランダムチェック() {
+
+		// Randomクラスのインスタンス化
+
+		Random rnd = new Random();
+
+		int ran = rnd.nextInt(999);
+		System.out.println(ran);
+
+		assertThat(FizzBuzz.FB(5 * ran), not(is("Buzz")));
 	}
 
 }
