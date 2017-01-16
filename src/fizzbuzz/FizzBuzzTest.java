@@ -54,8 +54,6 @@ public class FizzBuzzTest {
 		assertThat(FizzBuzz.FB(9), is("9"));
 	}
 
-	// マイナスの数値
-
 	@Test
 	public void test5倍数エラー出しチェック() {
 		assertThat(FizzBuzz.FB(20), is("20"));
